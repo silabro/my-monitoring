@@ -21,4 +21,9 @@ jobs:
       # Шаг 3: Проверяем версию Docker Compose
       - name: Check Docker Compose version
         run: docker compose version
+      
+      # Шаг 4: Собираем наши образы
+      - name: Build Docker images
+        run: docker compose build
+
 
