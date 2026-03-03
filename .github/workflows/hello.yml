@@ -10,5 +10,15 @@ jobs:
     
     # Что конкретно будут делать рабочие в цеху?
     steps:
-      - name: Print a greeting # Название шага
-        run: echo "Hello World! I am running on GitHub Actions!" # Команда Linux
+      # Шаг 1: Используем готовый экшен для скачивания кода
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Шаг 2: Проверяем, на месте ли код
+      - name: List files
+        run: ls -la
+
+      # Шаг 3: Проверяем версию Docker Compose
+      - name: Check Docker Compose version
+        run: docker compose version
+
